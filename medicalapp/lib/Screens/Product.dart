@@ -49,6 +49,4 @@ class Product extends StatelessWidget {
               )
             ]);
           },
-        ));
-  }
-}
+        ));  }}

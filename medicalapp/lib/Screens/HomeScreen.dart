@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import "package:material_design_icons_flutter/material_design_icons_flutter.dart";
 import 'package:medicalapp/Screens/Product.dart';
+import 'package:medicalapp/Screens/ProductDetail.dart';
+import 'package:medicalapp/component/Product.dart';
 import 'package:medicalapp/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -211,27 +213,37 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                        Text(
-                          "Deals of the day",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: bcolor.withOpacity(0.7),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ), Text(
-                          "More",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: pcolor.withOpacity(0.7),
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ), 
-                    ],
+                  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                          Text(
+                            "Deals of the day",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: bcolor.withOpacity(0.7),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ), TextButton(
+                            onPressed: () {
+                          Navigator.push(
+                      context, MaterialPageRoute(
+                        builder: (context) => ProductDetail() ));
+
+                            },
+                            child: Text(
+                            "More",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: pcolor.withOpacity(0.7),
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ), ),
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 3),
                   Product(),
                 ],
               ),
